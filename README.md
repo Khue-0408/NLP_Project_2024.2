@@ -123,6 +123,6 @@ Each notebook is self-contained: The first cell is the training code; the second
 
 ---
 
->  All reference weights can be found here:  
+>  All reference weights and data can be found here:  
 > https://drive.google.com/drive/folders/1JxpjFg8SXVEs1raLO7jT6IXZvu9RWoqj?hl=vi
 ---

@@ -89,11 +89,11 @@ python train_embedding.py
 
 ## 🧪 Baseline Notebooks
 
-* **BM25.ipynb** – evaluation and inference example
-* **BM42.ipynb** – alternative baseline implementation 
-* **FAISS.ipynb** – build a FAISS index on `full_emb.npy`, run nearest-neighbor retrieval
+* **BM25.ipynb** – TF-IDF based retrieval
+* **BM42.ipynb** – similar to BM25 but with Attention-based weighting instead of TF
+* **FAISS.ipynb** – build a FAISS index on full_emb.npy, run nearest-neighbor retrieval
 
-Each notebook is self-contained: load your cleaned data, run retrieval, compute accuracy metrics.
+Each notebook is self-contained: The first cell is the training code; the second is the evaluation code, and the third is the infer code. Make sure the paths to the data are correct for evaluating and infering. You can change the infer question in the code itself.
 
 ---
 

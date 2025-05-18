@@ -1,13 +1,11 @@
-# Legal Retrieval: Contrastive E5 Embedding Pipeline
-
-This repository contains everything you need to build and evaluate a dense+contrastive embedding retrieval pipeline on legal text.  
+# Legal Document Retrieval
 
 You'll find:
 - A **Contrastive_E5** folder with scripts and notebooks to embed your corpus, mine hard negatives, create training data, and train your own embedding model.  
-- Standalone notebooks for classic IR baselines: **BM25**, **BM25F**, **FAISS**.  
+- Standalone notebooks for classic IR baselines: **BM25**, **BM42**, **FAISS**.  
 - A **Preprocess.ipynb** for all data cleaning and tokenization steps.  
 
-> **Note:** We plan to add a cross-encoder reranker soon. For now you can ignore reranker references.
+
 
 ---
 
@@ -23,7 +21,7 @@ You'll find:
 │   ├── requirements.txt
 │   └── train_embedding.py
 ├── BM25.ipynb
-├── BM25F.ipynb
+├── BM42.ipynb
 ├── FAISS.ipynb
 └── Preprocess.ipynb
 ```
@@ -52,8 +50,6 @@ Place them at the root of this repo.
      - `train_emb.npy` (M × D float32 embeddings)  
      - `train_ids.npy` (M train-question IDs)  
 
-> ⚠️ If you want to use our reference weights, download them here and update the paths in the notebooks:  
-> https://huggingface.co/models/legal-embeddings
 
 ### 3. Mine hard negatives
 
@@ -93,8 +89,8 @@ python train_embedding.py
 
 ## 🧪 Baseline Notebooks
 
-* **BM25.ipynb** – full implementation, evaluation and inference example
-* **BM25F.ipynb** – similar to BM25 but with field-based weighting
+* **BM25.ipynb** – evaluation and inference example
+* **BM42.ipynb** – alternative baseline implementation 
 * **FAISS.ipynb** – build a FAISS index on `full_emb.npy`, run nearest-neighbor retrieval
 
 Each notebook is self-contained: load your cleaned data, run retrieval, compute accuracy metrics.
@@ -127,6 +123,9 @@ You'll also need the usual ML stack:
 * FAISS
 * Underthesea (for Vietnamese tokenization)
 
+
+> ⚠️ All reference weights can be found here:  
+> https://drive.google.com/drive/folders/1JxpjFg8SXVEs1raLO7jT6IXZvu9RWoqj?hl=vi
 ---
 
 ## 📄 License

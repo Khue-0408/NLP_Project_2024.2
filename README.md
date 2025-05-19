@@ -23,6 +23,7 @@ You'll find:
 ├── BM25.ipynb
 ├── BM42.ipynb
 ├── faiss.ipynb
+├── infer_e5_reranker.ipynb
 └── Preprocess.ipynb
 ```
 
@@ -42,7 +43,7 @@ This produces `corpus.csv` and `train.csv` ready for embedding and mining.
 
 ---
 
-## E5 Model Code
+## Contrastive Hard-Negative E5
 
 ### 1. Prepare your data
 - `corpus.csv` – each row is one legal document (ID + text).  
@@ -100,17 +101,25 @@ python train_embedding.py
  Saves a new checkpoint under `Contrastive_E5/checkpoints/`. 
 You can also load our pretrained model and run inference as model = SentenceTransformer("Khue-0408/e5_full_hard_neg")
 
-
 ---
 
 ## Baseline Models Code
 
  BM25.ipynb – TF-IDF based retrieval
  BM42.ipynb – similar to BM25 but with Attention-based weighting instead of TF
- FAISS.ipynb – build a FAISS index on full_emb.npy, run nearest-neighbor retrieval
+ FAISS.ipynb – build a FAISS index then run nearest-neighbor retrieval
 
+### Running the notebooks
 Each notebook is self-contained: The first cell is the training code; the second is the evaluation code, and the third is the infer code. Make sure the paths to the data are correct for evaluating and infering. You can change the infer question in the code itself.
 
+---
+
+## Infer E5 and hybrid model with reranker
+
+infer_e5_reranker.ipynb - build `get_relevant_bm25`, `get_relevant_faiss`, and `get_relevant_e5` functions to collect each branch’s top-20 candidates then rerank with "jinaai/jina-reranker-v2-base-multilingual".
+
+### Running the notebooks
+Update all checkpoint and data paths at the top of each notebook to point to your local directories (or the Google Drive link below) then run all cells sequentially.
 ---
 
 >  All reference weights and data can be found here:  

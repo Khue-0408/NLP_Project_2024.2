@@ -120,6 +120,7 @@ infer_e5_reranker.ipynb - build `get_relevant_bm25`, `get_relevant_faiss`, and `
 
 ### Running the notebooks
 Update all checkpoint and data paths at the top of each notebook to point to your local directories (or the Google Drive link below) then run all cells sequentially.
+
 ---
 
 >  All reference weights and data can be found here:  

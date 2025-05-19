@@ -22,7 +22,7 @@ You'll find:
 │   └── train_embedding.py
 ├── BM25.ipynb
 ├── BM42.ipynb
-├── FAISS.ipynb
+├── faiss.ipynb
 └── Preprocess.ipynb
 ```
 
@@ -30,22 +30,10 @@ You'll find:
 
 ##  Requirements
 
-All Python dependencies live in:
-```
-Contrastive_E5/requirements.txt
-```
-
-Install via:
 ```bash
 pip install -r Contrastive_E5/requirements.txt
 ```
 
-You'll also need the usual ML stack:
- Python ≥ 3.8
- PyTorch
- HuggingFace Transformers
- FAISS
- Underthesea (for Vietnamese tokenization)
 
 ## Preprocessing
 
@@ -109,7 +97,9 @@ python train_embedding.py
 
  Reads the contrastive triplets from `full_hard_neg.csv`
  Trains a dual-encoder with in-batch + hard-negative contrastive loss
- Saves a new checkpoint under `Contrastive_E5/checkpoints/`
+ Saves a new checkpoint under `Contrastive_E5/checkpoints/`. 
+You can also load our pretrained model and run inference as model = SentenceTransformer("Khue-0408/e5_full_hard_neg")
+
 
 ---
 
